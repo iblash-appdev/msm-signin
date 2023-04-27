@@ -10,11 +10,43 @@
     <!-- Make it responsive to small screens -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
 
   <body>
+     <ul>
+      <li>
+        <a href="/movies">Movies</a>
+      </li>
+       <li>
+        <a href="/directors">Directors</a>
+      </li>
+       <li>
+        <a href="/actors">Actors</a>
+      </li>
+       <li>
+        <a href="/characters">Characters</a>
+      </li>
+    
+
+      <% if @current_user == nil #not sigend in %>
+        <li>
+        <a href="/user_sign_up">Sign up</a>
+      </li>
+       <li>
+        <a href="/user_sign_in">Sign in</a>
+      </li>
+      <% else %>
+       <li>
+        <a href="/bookmarks"><%= @current_user.first_name%>'s Bookmarks</a>
+      </li>
+       <li>
+        <a href="/user_sign_out">Sign out</a>
+      </li>
+      <% end %>
+     </ul>
+     <p style="color: green"><%= notice %></p>
+     <p style="color: red"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
