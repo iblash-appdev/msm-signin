@@ -134,8 +134,10 @@
         </td>
 
         <td>
-          <%= a_movie.director_id %>
-        </td>
+          <%#= a_movie.director_id %>
+          
+          <%= a_movie.director.name %>
+          <%= a_movie.director.dob %>
 
         <td>
           <%= a_movie.description %>
